@@ -4,7 +4,7 @@ describe "user can create addresses" do
   describe "from the student show page" do
     it "creates new address" do
       student = create(:student)
-      vist student_path(student)
+      visit student_path(student)
 
       click_on "Add Address"
 
