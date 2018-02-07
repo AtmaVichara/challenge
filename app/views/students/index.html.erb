@@ -6,7 +6,8 @@
     <%= student.name %>
   </p>
   <%= link_to "Edit", edit_student_path(student) %>
-  <% end %>
+  <%= link_to "Delete", student_path(student), method: :delete %>
 </div>
+  <% end %>
 
 <%= link_to "Create New Student", new_student_path %>

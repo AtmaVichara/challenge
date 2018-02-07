@@ -9,7 +9,7 @@ describe "user can delete student" do
       visit students_path
 
       find(".student-#{student.id}").click_on "Delete"
-
+      
       expect(page).to_not have_content(student.name)
       expect(page).to have_content(student2.name)
     end
