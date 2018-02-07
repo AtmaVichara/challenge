@@ -6,7 +6,7 @@ describe "user can create addresses" do
       student = create(:student)
       visit student_path(student)
 
-      click_on "Add Address"
+      click_on "Add New Address"
 
       fill_in "address[description]", with: "It's desolate and there is no roof, but it's home"
       fill_in "address[street]", with: "Off of the beaten path"
