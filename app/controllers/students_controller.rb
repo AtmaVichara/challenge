@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-  before_action :set_student, only: [:show, :edit]
+  before_action :set_student, only: [:show, :edit, :update]
 
   def index
     @students = Student.all
@@ -25,7 +25,16 @@ class StudentsController < ApplicationController
   end
 
   def edit
+  end
 
+  def update
+    if @student.update!(student_params)
+      flash[:succes] = "You have updated #{@student.name}"
+      redirect_to student_path(@student)
+    else
+      render :edit
+      flash[:alert] = "Something didn't go right. Try that again!!!!"
+    end
   end
 
   private
