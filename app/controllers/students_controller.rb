@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-  before_action :set_student, only: [:show, :edit, :update]
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index
     @students = Student.all
@@ -35,6 +35,11 @@ class StudentsController < ApplicationController
       render :edit
       flash[:alert] = "Something didn't go right. Try that again!!!!"
     end
+  end
+
+  def destroy
+    @student.destroy
+    redirect_to students_path
   end
 
   private
