@@ -1,11 +1,12 @@
 class StudentsController < ApplicationController
 
+  before_action :set_student, only: [:show, :edit]
+
   def index
     @students = Student.all
   end
 
   def show
-    @student = Student.find(params[:id])
   end
 
   def new
@@ -21,6 +22,9 @@ class StudentsController < ApplicationController
       render :new
       flash[:alert] = "Error. Student not saved... Try again!!!"
     end
+  end
+
+  def edit
 
   end
 
@@ -29,4 +33,7 @@ class StudentsController < ApplicationController
     params.require(:student).permit(:name)
   end
 
+  def set_student
+    @student = Student.find(params[:id])
+  end
 end
